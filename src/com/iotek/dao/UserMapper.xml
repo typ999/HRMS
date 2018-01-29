@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotek.dao.UserMapper">
+    <insert id="addUser">
+        insert into H_USER (U_ID,U_NAME,U_PASS) values (U_SEQ.nextval,#{u_name},#{u_pass})
+    </insert>
+
+    <update id="updateUser" parameterType="user">
+        update H_USER set U_PASS = #{u_pass} where U_ID = #{u_id}
+    </update>
+
+    <update id="updateAttribute">
+        update H_USER set U_ATTRIBUTE = #{u_attribute} where U_ID = #{u_id}
+    </update>
+
+    <select id="getUser" resultType="com.iotek.model.User">
+        select * from H_USER where U_NAME = #{u_name} and U_PASS = #{u_pass}
+    </select>
+
+    <select id="getUserByName" resultType="com.iotek.model.User">
+        select * from H_USER where U_NAME = #{u_name}
+    </select>
+</mapper>

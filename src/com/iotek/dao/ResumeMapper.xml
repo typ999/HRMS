@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.ResumeMapper">
+    <insert id="addResume">
+        insert into H_RESUME (R_ID,R_NAME,R_SEX,R_PHOTO,R_NATIONAL,R_SCHOOL,R_DEGREE,R_PROFESSIONAL,R_PHONE,R_EMAIL,R_BIRTHDAY,R_INTENTION,R_SKILLS,R_EXPERIENCE,R_SELF,U_ID)
+        values (R_SEQ.nextval,#{r_name},#{r_sex},#{r_photo},#{r_national},#{r_school},#{r_degree},#{r_professional},#{r_phone},#{r_email},#{r_birthday},#{r_intention},#{r_skills},#{r_experience},#{r_self},#{user.u_id})
+    </insert>
+    <update id="updateResume">
+        update H_RESUME set R_NAME = #{r_name},R_SEX=#{r_sex},R_NATIONAL=#{r_national},R_SCHOOL=#{r_school},R_DEGREE=#{r_degree},R_PROFESSIONAL=#{r_professional},R_PHONE=#{r_phone},R_EMAIL=#{r_email},R_BIRTHDAY=#{r_birthday},R_INTENTION=#{r_intention},R_SKILLS=#{r_skills},R_EXPERIENCE=#{r_experience},R_SELF=#{r_self}
+         where R_ID=#{r_id};
+    </update>
+    <select id="getDetailByUid" resultType="com.iotek.model.Resume">
+        select * from H_RESUME where U_ID = #{user.u_id}
+    </select>
+</mapper>
