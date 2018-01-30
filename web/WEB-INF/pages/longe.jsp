@@ -56,7 +56,7 @@
             <input type="text" name="u_name" class="login"  placeholder="请输入用户名">
             <br/><span class='state1' id="sp1"></span><br/><br/>
             <label class="label2"  style="font-family: '宋体'">密&nbsp;码:</label>
-            <input type="password" name="u_pass"  class="login" placeholder="请输入确认密码">
+            <input type="password" name="u_pass"  class="login" placeholder="请输入密码">
             <br><span class='state1' id="sp2"></span><br><br/>
             <input type="submit" id="login-in"  value="登录"/>
             <a href="forAddJsp" class="sign" >注册</a>

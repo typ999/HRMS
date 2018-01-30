@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.CompanyMapper">
+    <insert id="addCompany">
+        insert into H_COMPANY (C_ID,C_NAME,C_ADDRESS,C_BLURB,C_PHONE) values (C_SEQ.nextval,#{c_name},#{c_address},#{c_blurb},#{c_phone})
+    </insert>
+    <update id="updateCompany">
+        update H_COMPANY set C_NAME =#{c_name},C_ADDRESS=#{c_address},C_BLURB=#{c_blurb},C_PHONE=#{c_phone}  where C_ID = #{c_id}
+    </update>
+    <select id="getAll" resultType="com.iotek.model.Company">
+        select * from H_COMPANY
+    </select>
+    <select id="getCompanyById" resultType="com.iotek.model.Company">
+        select * from H_COMPANY where C_ID = #{c_id};
+    </select>
+    <select id="getCompanyByName" resultType="com.iotek.model.Company">
+        select * from H_COMPANY where C_NAME like '%#{}%'
+    </select>
+</mapper>

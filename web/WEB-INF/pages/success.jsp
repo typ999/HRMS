@@ -16,6 +16,11 @@
     <title></title>
 </head>
 <body>
-1111
+<form action="getResumes" method="post">
+    <input type="submit" value="查看简历">
+</form>
+<form action="addResumes" method="post">
+    <input type="submit" value="添加修改简历">
+</form>
 </body>
 </html>
