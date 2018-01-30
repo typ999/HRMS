@@ -1,6 +1,10 @@
 package com.iotek.controller;
 
+import com.iotek.model.Company;
 import com.iotek.model.User;
+import com.iotek.service.CompanyService;
+import com.iotek.service.JobDepService;
+import com.iotek.service.RecruitmentService;
 import com.iotek.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,12 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private RecruitmentService recruitmentService;
+    @Resource
+    private CompanyService companyService;
+    @Resource
+    private JobDepService jobDepService;
 
     @RequestMapping("/forAddJsp")
     public String forAddJsp()throws Exception{
@@ -23,6 +33,15 @@ public class UserController {
     public String forlongeJsp()throws Exception{
         return "longe";
     }
+    @RequestMapping("/foraddResumeJsp")
+    public String foraddResumeJsp()throws Exception{
+        return "addResume";
+    }
+    @RequestMapping("/forsuccessJsp")
+    public String forsuccessJsp(HttpSession session)throws Exception{
+        session.setAttribute("recruitments",recruitmentService.getAll());
+        return "success";
+    }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String login(User user,HttpSession session)throws Exception{
@@ -30,11 +49,18 @@ public class UserController {
         if (user1!=null){
             session.setAttribute("user",user1);
             if (user1.getU_attribute()==0){
+                session.setAttribute("recruitments",recruitmentService.getAll());
+                session.setAttribute("companys",companyService.getAll());
+                session.setAttribute("jobs",jobDepService.getAllJob());
+                session.setAttribute("departments",jobDepService.getAllDepartment());
                 return "success";
             }if (user1.getU_attribute()==1){
 
             }if (user1.getU_attribute()==2){
-
+                session.setAttribute("companys",companyService.getAll());
+                session.setAttribute("jobs",jobDepService.getAllJob());
+                session.setAttribute("departments",jobDepService.getAllDepartment());
+                return "success2";
             }
         }
         return "longe";

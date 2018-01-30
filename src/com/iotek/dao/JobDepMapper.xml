@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.JobDepMapper">
+    <insert id="addJob">
+        insert into H_JOB (J_ID,J_NAME) values (J_SEQ.nextval,#{j_name})
+    </insert>
+    <insert id="addDep">
+        insert into H_DEPARTMENT (D_ID,D_NAME) values (D_SEQ.nextval,#{d_name})
+    </insert>
+    <update id="updateJob">
+        update H_JOB set J_NAME = #{j_name} where J_ID=#{j_id}
+    </update>
+    <update id="updateDep">
+        update H_DEPARTMENT set D_NAME = #{d_name} where D_ID=#{d_id}
+    </update>
+    <select id="getJobById" resultType="com.iotek.model.Job">
+        select * from H_JOB where J_ID=#{j_id}
+    </select>
+    <select id="getJobByName" resultType="com.iotek.model.Job">
+        select * from H_JOB where J_NSME like '%${value}%'
+    </select>
+    <select id="getAllJob" resultType="com.iotek.model.Job">
+        select * from H_JOB
+    </select>
+    <select id="getDepartmentById" resultType="com.iotek.model.Department">
+        select * from H_DEPARTMENT where D_ID=#{d_id}
+    </select>
+    <select id="getDepartmentByName" resultType="com.iotek.model.Department">
+        select * from H_DEPARTMENT where D_NAME liks '%${value}%'
+    </select>
+    <select id="getAllDepartment" resultType="com.iotek.model.Department">
+        select * from H_DEPARTMENT
+    </select>
+</mapper>

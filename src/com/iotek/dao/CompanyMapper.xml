@@ -14,6 +14,6 @@
         select * from H_COMPANY where C_ID = #{c_id};
     </select>
     <select id="getCompanyByName" resultType="com.iotek.model.Company">
-        select * from H_COMPANY where C_NAME like '%#{}%'
+        select * from H_COMPANY where C_NAME like '%${value}%'
     </select>
 </mapper>

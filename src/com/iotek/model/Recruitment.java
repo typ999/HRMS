@@ -3,54 +3,54 @@ package com.iotek.model;
 import java.io.Serializable;
 
 public class Recruitment implements Serializable {
-    private int id;
-    private Company company;
-    private Job job;
-    private float rm_money;
+    private int rm_id;
+    private int c_id;
+    private int j_id;
+    private int rm_money;
     private String rm_requirement;
     private int rm_people;
 
     public Recruitment() {
     }
 
-    public Recruitment(int id, Company company, Job job, float rm_money, String rm_requirement, int rm_people) {
-        this.id = id;
-        this.company = company;
-        this.job = job;
+    public Recruitment(int rm_id, int c_id, int j_id, int rm_money, String rm_requirement, int rm_people) {
+        this.rm_id = rm_id;
+        this.c_id = c_id;
+        this.j_id = j_id;
         this.rm_money = rm_money;
         this.rm_requirement = rm_requirement;
         this.rm_people = rm_people;
     }
 
-    public int getId() {
-        return id;
+    public int getRm_id() {
+        return rm_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRm_id(int rm_id) {
+        this.rm_id = rm_id;
     }
 
-    public Company getCompany() {
-        return company;
+    public int getC_id() {
+        return c_id;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setC_id(int c_id) {
+        this.c_id = c_id;
     }
 
-    public Job getJob() {
-        return job;
+    public int getJ_id() {
+        return j_id;
     }
 
-    public void setJob(Job job) {
-        this.job = job;
+    public void setJ_id(int j_id) {
+        this.j_id = j_id;
     }
 
-    public float getRm_money() {
+    public int getRm_money() {
         return rm_money;
     }
 
-    public void setRm_money(float rm_money) {
+    public void setRm_money(int rm_money) {
         this.rm_money = rm_money;
     }
 
@@ -73,9 +73,9 @@ public class Recruitment implements Serializable {
     @Override
     public String toString() {
         return "Recruitment{" +
-                "id=" + id +
-                ", company=" + company +
-                ", job=" + job +
+                "rm_id=" + rm_id +
+                ", c_id=" + c_id +
+                ", j_id=" + j_id +
                 ", rm_money=" + rm_money +
                 ", rm_requirement='" + rm_requirement + '\'' +
                 ", rm_people=" + rm_people +

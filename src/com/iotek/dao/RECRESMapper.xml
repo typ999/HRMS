@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.RECRESMapper">
+    <insert id="addRECRES">
+        insert into H_RECRES (RR_ID,R_ID,RM_ID,RR_ATTRIBUTE) values (RR_SEQ.nextval,#{resume.r_id},#{recruitment.rm_id},#{rr_attribute});
+    </insert>
+    <select id="getRECRESByREC" resultType="com.iotek.model.RECRES">
+
+    </select>
+    <select id="getRECRESByRES" resultType="com.iotek.model.RECRES">
+
+    </select>
+    <select id="getRECRESById" resultType="com.iotek.model.RECRES">
+
+    </select>
+</mapper>

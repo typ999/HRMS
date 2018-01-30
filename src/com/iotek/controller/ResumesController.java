@@ -18,7 +18,7 @@ public class ResumesController {
     private ResumeService resumeService;
 
     @RequestMapping(value = "/getResumes",method = RequestMethod.POST)
-    public String addDetail(HttpServletRequest request) throws Exception{
+    public String getResumes(HttpServletRequest request) throws Exception{
         User user= (User) request.getSession().getAttribute("user");
         Resume resume = new Resume();
         resume.setUser(user);
@@ -26,7 +26,7 @@ public class ResumesController {
         return "getResume";
     }
     @RequestMapping(value = "/addResume",method = RequestMethod.POST)
-    public String addDetail(Resume resume,HttpServletRequest request) throws Exception{
+    public String addResume(Resume resume,HttpServletRequest request) throws Exception{
         User user= (User) request.getSession().getAttribute("user");
         resume.setUser(user);
         List<Resume> resumes = resumeService.getDetailByUid(resume);
